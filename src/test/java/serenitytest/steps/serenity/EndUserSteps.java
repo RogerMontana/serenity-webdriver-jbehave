@@ -6,11 +6,13 @@ import static org.hamcrest.Matchers.hasItem;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import serenitytest.pages.SkillsUpTeamPage;
 import serenitytest.pages.WikiDummyPage;
 
 public class EndUserSteps extends ScenarioSteps {
 
-    WikiDummyPage wikiDummyPage;
+    private WikiDummyPage wikiDummyPage;
+    SkillsUpTeamPage skillsUpTeamPage;
 
     @Step
     public void enters(String keyword) {
@@ -34,6 +36,12 @@ public class EndUserSteps extends ScenarioSteps {
 
     @Step
     public void looks_for(String term) {
+        enters(term);
+        starts_search();
+    }
+
+    @Step
+    public void go_to_(String term) {
         enters(term);
         starts_search();
     }
